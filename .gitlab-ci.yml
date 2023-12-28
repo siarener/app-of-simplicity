@@ -14,7 +14,16 @@ before_script:
   - python --version ; pip --version  # For debugging
   - pip install --no-cache-dir -r requirements.txt
 
-test:
+commit-linting:
   stage: test
   script:
-    - pytest tests/*
+    - pip install pre-commit
+    - pre-commit install
+    - pre-commit run --all-files
+    - rm -r .git/hooks/
+
+unit-tests:
+  stage: test
+  script:
+    - pip install --no-cache-dir -r requirements-test.txt
+    - pytest --junitxml=report.xml .
