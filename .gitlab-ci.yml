@@ -1,8 +1,20 @@
 stages:
-    - test
+  - test
+
+# Official language image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/python/tags/
+image: python:latest
+
+# https://pip.pypa.io/en/stable/topics/caching/
+cache:
+  paths:
+    - .cache/pip
+
+before_script:
+  - python --version ; pip --version  # For debugging
+  - pip install --no-cache-dir -r requirements.txt
 
 test:
-    stage: test
-    script:
-        - echo "Success!"
-        - exit 1
+  stage: test
+  script:
+    - pytest tests/*
