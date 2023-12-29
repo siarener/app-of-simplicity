@@ -16,7 +16,8 @@
         "ghcr.io/devcontainers/features/git:1": {
             "version": "latest",
             "ppa": "false"
-        }
+        },
+        "ghcr.io/devcontainers-contrib/features/pre-commit:2": {}
     },
 	// Configure tool-specific properties.
 	"customizations": {
@@ -25,7 +26,11 @@
 			// Set *default* container specific settings.json values on container create.
 			"settings": {
 				"python.defaultInterpreterPath": "/usr/local/bin/python"
-			}
+            },
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "vivaxy.vscode-conventional-commits"
+            ]
 		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
