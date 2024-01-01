@@ -1,5 +1,6 @@
+---
 stages:
-  - test
+    - test
 
 # Official language image. Look for the different tagged releases at:
 # https://hub.docker.com/r/library/python/tags/
@@ -7,23 +8,23 @@ image: python:latest
 
 # https://pip.pypa.io/en/stable/topics/caching/
 cache:
-  paths:
-    - .cache/pip
+    paths:
+        - .cache/pip
 
 before_script:
-  - python --version ; pip --version  # For debugging
-  - pip install --no-cache-dir -r requirements.txt
+    - python --version ; pip --version  # For debugging
+    - pip install --no-cache-dir -r requirements.txt
 
 commit-linting:
-  stage: test
-  script:
-    - pip install pre-commit
-    - pre-commit install
-    - pre-commit run --all-files
-    - rm -r .git/hooks/
+    stage: test
+    script:
+        - pip install pre-commit
+        - pre-commit install
+        - pre-commit run --all-files
+        - rm -r .git/hooks/
 
 unit-tests:
-  stage: test
-  script:
-    - pip install --no-cache-dir -r requirements-test.txt
-    - pytest --junitxml=report.xml .
+    stage: test
+    script:
+        - pip install --no-cache-dir -r requirements-test.txt
+        - pytest --junitxml=report.xml .

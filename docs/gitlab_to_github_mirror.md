@@ -13,5 +13,5 @@ I documented the setup here, as the possible configuration in GitLab changed and
 
 
 ## Setup push-mirror in GitLab
-- in the GitLab repository, go to `Settings` > `Repository` > `Mirroring repositories`.<br /> 
+- in the GitLab repository, go to `Settings` > `Repository` > `Mirroring repositories`.<br />
     ![GitLab mirror setup](./images/mirror_gitlab_to_github.png){width=50%}

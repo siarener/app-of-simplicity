@@ -2,19 +2,23 @@ import time
 import re
 from configparser import ConfigParser
 
+
 def split_into_sentences(text):
     # Use a simple regex to split the text into sentences
-    sentences = re.split(r'(?<=[.!?])\s+', text)
+    sentences = re.split(r"(?<=[.!?])\s+", text)
     return sentences
 
+
 def read_lorem_ipsum_from_file(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path) as file:
         return file.read()
+
 
 def load_config():
     config = ConfigParser()
-    config.read('config/config.ini')
+    config.read("config/config.ini")
     return config
+
 
 def write_logs(file_path):
     lorem_ipsum_text = read_lorem_ipsum_from_file(file_path)
