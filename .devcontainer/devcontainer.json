@@ -22,7 +22,7 @@
 	"customizations": {
 		"vscode": {
 
-			"settings": {
+ 			"settings": {
 				"python.defaultInterpreterPath": "/usr/local/bin/python"
             },
             "extensions": [
@@ -39,5 +39,6 @@
             ]
 		}
 	},
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+    "postAttachCommand": "pip install pre-commit && pre-commit install-hooks"
 }
