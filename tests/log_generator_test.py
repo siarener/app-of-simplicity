@@ -1,4 +1,8 @@
-from src.log_writer import split_into_sentences, read_lorem_ipsum_from_file, load_config
+from src.log_writer import (
+    split_into_sentences,
+    read_lorem_ipsum_from_file,
+    load_config,
+)
 
 
 def test_split_into_sentences():
